@@ -50,7 +50,10 @@ To clearly define the project scope, align on the client's expectations for the 
   - The project team has creative freedom regarding the design, color palette, and overall artistic direction.
 
 - **Features Identified:**
-  - Wine recommendations
+  - **Wine Recommendations:**
+    - Ability to suggest appropriate wines based on user-selected food or cheese.
+    - Dedicated wine product pages displaying key characteristics (e.g., grape variety, region, tasting notes, vintage, sulfite presence, etc.).
+    - Advanced wine sorting/filtering options to match individual customer preferences (e.g., preference for natural wines without sulfites, organic wines, or specific appellations).
   - Food pairing and cheese pairing functionalities
 
 - **Marketing Strategy:**
