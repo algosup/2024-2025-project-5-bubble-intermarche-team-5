@@ -189,7 +189,7 @@ This mobile application aims to help customers of Intermarché in the South of F
 - Comprehensive catalog of wines sold at the specific Intermarché location
 - Complete cheese inventory with detailed descriptions
 - Pairing rules and recommendations from wine and cheese department employees
-- Product information will be initially created by developers with input from store experts (Célia Moustier and Chrys Cadeau)
+- Product information will be initially created by developers with input from store experts (Célia Moustiés and Chrys Cadeau)
 
 ### 5.2 Data Maintenance
 
@@ -458,7 +458,7 @@ All mockups for the application have been created and shared with the client via
 
 | Role | Name | Department |
 |------|------|-----------|
-| Customer | Célia MOUSTIER | Intermarché Employee |
+| Customer | Célia MOUSTIÉS | Intermarché Employee |
 | Customer | Chrys CADEAU | Intermarché Employee |
 | Project Manager | Ian LAURENT | ALGOSUP Student |
 | Technical Lead | Remy CHARLES| ALGOSUP Student |
