@@ -189,11 +189,7 @@ This mobile application aims to help Intermarché customers in the South of Fran
 - Comprehensive catalog of wines sold at the specific Intermarché location
 - Complete cheese inventory with detailed descriptions
 - Pairing rules and recommendations from wine and cheese department employees
-<<<<<<< Updated upstream
-- Product information will be initially created by developers with input from store experts (Célia Moustier and Chrys Cadeau)
-=======
 - Developers will initially create product information with input from store experts (Célia Moustier and Chrys Cadeau)
->>>>>>> Stashed changes
 
 ### 5.2 Data Maintenance
 
