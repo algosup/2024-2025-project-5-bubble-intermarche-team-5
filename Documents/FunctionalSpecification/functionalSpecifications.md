@@ -2,7 +2,7 @@
 
 ## Executive Summary
 
-This document outlines the functional requirements for a mobile application serving a specific Intermarché location in the South of France. The app will help customers find appropriate wine and cheese pairings based on dishes they select. The primary audience includes both local French customers and tourists visiting the region. The application prioritizes simplicity, accessibility, and multilingual support to enhance the shopping experience without requiring user accounts or complex interactions.
+This document outlines the functional requirements for a mobile application serving a specific Intermarché location in the South of France. The app will help customers find appropriate wine and cheese pairings based on the dishes they select. The primary audience includes both local French customers and tourists visiting the region. The application prioritizes simplicity, accessibility, and multilingual support to enhance the shopping experience without requiring user accounts or complex interactions.
 
 ## Document Control
 
@@ -84,7 +84,7 @@ This document outlines the functional requirements for a mobile application serv
 
 ### 1.1 Purpose
 
-This mobile application aims to help customers of Intermarché in the South of France find appropriate wine and cheese pairings based on dishes they select. The primary target audience is tourists visiting the region who may be unfamiliar with local products and traditional pairings.
+This mobile application aims to help Intermarché customers in the South of France find appropriate wine and cheese pairings for the dishes they select. The primary target audience is tourists visiting the region who may be unfamiliar with local products and traditional pairings.
 
 ### 1.2 Business Objectives
 
@@ -99,7 +99,7 @@ This mobile application aims to help customers of Intermarché in the South of F
 - Tourists visiting Southern France (primary international users)
 - Elderly users with potential accessibility needs
 - Users with varying levels of wine and cheese knowledge
-- Users with visual impairments including color blindness
+- Users with visual impairments, including color blindness
 
 ## 2. User Experience & Interface Requirements
 
@@ -115,7 +115,7 @@ This mobile application aims to help customers of Intermarché in the South of F
 1. Select language
 2. Browse or search for a dish
 3. View recommended wine and cheese pairings
-4. View product details and locate in store
+4. View product details and locate in-store
 5. *(V2 Consideration)*: Create shopping list
 
 ### 2.3 User Interface Guidelines
@@ -123,7 +123,7 @@ This mobile application aims to help customers of Intermarché in the South of F
 - Clean, minimalist interface with emphasis on visual representation of products
 - Maximum 3 clicks to reach any core function
 - Typography must be readable in bright daylight (store environment)
-- UI elements sized appropriately for one-handed mobile use
+- UI elements are sized appropriately for one-handed mobile use
 - Design must accommodate both languages without layout changes
 - Accessibility features for elderly users (larger tap targets, adjustable text size)
 - Color schemes must accommodate color blindness (avoid red/green distinctions for critical functions)
@@ -150,7 +150,7 @@ This mobile application aims to help customers of Intermarché in the South of F
 - **Wine Information**: Varietal, region, taste profile, price range, bottle image
   - Must include legal age requirement notices for all alcoholic products
 - **Cheese Information**: Type, region, texture, flavor profile, price range, image
-  - Must include allergen information clearly displayed
+  - Must include allergen information displayed
 - **Availability** *(V2 Consideration)*: Real-time stock information at the specific Intermarché location
 - **Location** *(V2 Consideration)*: Aisle and section information for easy in-store navigation
 
@@ -174,7 +174,7 @@ This mobile application aims to help customers of Intermarché in the South of F
 
 - All app content must be available in both French and English
 - Translation must preserve context and accuracy for culinary terminology
-- Descriptions must maintain consistent tone and style across languages
+- Descriptions must maintain a consistent tone and style across languages
 - Units of measurement appropriate to language context (metric primary)
 
 ### 4.2 Language-Specific Considerations
@@ -189,7 +189,7 @@ This mobile application aims to help customers of Intermarché in the South of F
 - Comprehensive catalog of wines sold at the specific Intermarché location
 - Complete cheese inventory with detailed descriptions
 - Pairing rules and recommendations from wine and cheese department employees
-- Product information will be initially created by developers with input from store experts (Célia Moustiés and Chrys Cadeau)
+- Developers will initially create product information with input from store experts (Célia Moustier and Chrys Cadeau)
 
 ### 5.2 Data Maintenance
 
@@ -218,7 +218,7 @@ This mobile application aims to help customers of Intermarché in the South of F
 
 ### 6.3 Device Compatibility
 
-- iOS: Two most recent major versions
+- iOS: The two most recent major versions
 - Android: API level 26 (Android 8.0) and above
 - Responsive design to accommodate various screen sizes
 
@@ -226,7 +226,7 @@ This mobile application aims to help customers of Intermarché in the South of F
 
 ### 7.1 Intermarché Product System
 
-- Integration with store inventory system for product information
+- Integration with the store inventory system for product information
 - Stock level information from store database *(V2 Consideration)*
 - Price information synchronization
 
@@ -292,21 +292,21 @@ This mobile application aims to help customers of Intermarché in the South of F
 
 ### 11.2 Quality Metrics for Specifications
 
-- **Clarity Score**: Each requirement scored on a 1-5 scale for clarity by QA reviewers
+- **Clarity Score**: Each requirement is scored on a 1-5 scale for clarity by QA reviewers
 - **Testability Assessment**: Verification that each requirement can be tested objectively
-- **Implementation Risk Rating**: Each feature evaluated for implementation complexity and risk
+- **Implementation Risk Rating**: Each feature is evaluated for implementation complexity and risk
 - **Dependency Mapping**: Clear identification of dependencies between requirements
-- **Priority Classification**: Each requirement clearly labeled with priority level (Must-Have, Should-Have, Could-Have, Won't-Have)
+- **Priority Classification**: Each requirement is clearly labeled with priority level (Must-Have, Should-Have, Could-Have, Won't-Have)
 
 ### 11.3 Program Manager Responsibilities
 
 - **Single Source of Truth**: Maintain this document as the authoritative reference for the project scope
-- **Change Control**: Document and approve all changes through formal change management process
+- **Change Control**: Document and approve all changes through a formal change management process
 - **Version Control**: Maintain strict versioning with clear change logs
 - **Stakeholder Communication**: Regular review sessions with key stakeholders for alignment
-- **Technical Alignment**: Regular sessions with development team to validate understanding
+- **Technical Alignment**: Regular sessions with the development team to validate understanding
 - **User Focus Validation**: Ensure all requirements fulfill actual user needs through user research validation
-- **Business Value Verification**: Each feature must have clear connection to business objectives
+- **Business Value Verification**: Each feature must have a clear connection to business objectives
 - **Risk Management**: Identify and document risks associated with requirements
 - **Edge Case Documentation**: Ensure edge cases and exception scenarios are documented
 
@@ -324,7 +324,7 @@ This mobile application aims to help customers of Intermarché in the South of F
 
 - **Enhance Understanding**: Visual representations to clarify textual requirements
 - **Alignment Tool**: Ensure all stakeholders share the same mental model of the application
-- **Reference Material**: Provide technical team with concrete examples of expected functionality
+- **Reference Material**: Provide the technical team with concrete examples of expected functionality
 - **Communication Bridge**: Facilitate discussions between business and technical teams
 
 ### 12.2 User Flow Diagram
@@ -365,7 +365,7 @@ All mockups for the application have been created and shared with the client via
 #### Must Have
 
 - Wine and cheese pairing functionality
-- Support for French and English languages
+- Support for the French and English languages
 - Dish selection and search capability
 - Basic product information display (region, taste profile, price range)
 - Legal notices for alcohol products and allergen information
