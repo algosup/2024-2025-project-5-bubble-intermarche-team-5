@@ -10,13 +10,13 @@
 
 </br>
 
-**Project Name:** Intermarché Wine & Cheese Pairing App  
-**Version:** 1.0  
-**Prepared By:** Rémy Charles 
-**Date:** 2025-05-20  
-**Platform:** Bubble (No-Code)  
-**Application Type:** Mobile-First Progressive Web App (PWA)  
-**Target Audience:** Tourists & Local Shoppers in Southern France
+**Project Name:** Intermarché Wine & Cheese Pairing App  </br>
+**Version:** 1.0  </br>
+**Prepared By:** Rémy Charles </br>
+**Date:** 2025-05-20  </br>
+**Platform:** Bubble (No-Code)  </br>
+**Application Type:** Mobile-First Progressive Web App (PWA) </br> 
+**Target Audience:** Tourists & Local Shoppers in Southern France 
 
 ---
 
