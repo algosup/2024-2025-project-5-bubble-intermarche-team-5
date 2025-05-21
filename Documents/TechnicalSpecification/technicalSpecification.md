@@ -229,11 +229,11 @@ This mobile-first web application aims to assist users in discovering wine and c
 
 #### Custom Logic Tools
 
-- **Custom states[⁴](#glossary-custom-state)**: Used to manage app-level context (`selected_language`, `current_view[¹¹](#glossary-current-view)`, `selected_dish`, etc.)  
+- **Custom states[⁴](#glossary-custom-state)**: Used to manage app-level context (`selected_language`, `current_view`, `selected_dish`, etc.)  
 - **Custom events**: Used to modularize and reuse logic (e.g., navigating views, clearing data)  
 - **Toolbox Plugin[⁸](#glossary-toolbox)**:  
   - Enables JavaScript execution directly in workflows[⁵](#glossary-workflow)  
-  - Used for reading/writing to `localStorage[⁷](#glossary-localstorage)`, checking `navigator.onLine[⁹](#glossary-navigator-online)`, and debugging with `console.log`  
+  - Used for reading/writing to `localStorage`, checking `navigator.onLine`, and debugging with `console.log`  
 
 This combination allows Bubble[¹](#glossary-bubble) to handle UI, navigation, multilingual state, and basic offline fallback without relying on complex backend logic.
 
@@ -270,7 +270,7 @@ This combination allows Bubble[¹](#glossary-bubble) to handle UI, navigation, m
 ### 1.5 Key Technical Constraints
 
 - **No native device access** (camera, GPS, push notifications) without external wrapping
-- **Offline support is limited** to cached static data via `localStorage[⁷](#glossary-localstorage)` and session state
+- **Offline support is limited** to cached static data via `localStorage` and session state
 - **Database privacy rules[¹³](#glossary-privacy-rules)** are minimal, as all data is public
 - Bubble[¹](#glossary-bubble) is a **client-side rendered platform**: all workflows[⁵](#glossary-workflow) and database queries execute in the browser
 - **No server-side scripting or background jobs** possible without external APIs
@@ -320,7 +320,7 @@ This section describes the structural layout of the Bubble[¹](#glossary-bubble)
 
 - **Single-Page Application (SPA[³](#glossary-spa))** structure using conditional group visibility
 - Navigation is handled via:
-  - **Custom states[⁴](#glossary-custom-state)** (e.g., `current_view[¹¹](#glossary-current-view)`)
+  - **Custom states[⁴](#glossary-custom-state)** (e.g., `current_view`)
   - **URL parameters** (e.g., `?dish_id=123`)
   - **Conditional rendering** (show/hide groups)
 - Optimized for fast transitions without full page reloads
@@ -346,19 +346,19 @@ All major groups exist on the **index page** for performance and navigation simp
 
 #### State-Based Navigation
 
-- `current_view[¹¹](#glossary-current-view)` (custom state[⁴](#glossary-custom-state) on the page) controls which main group is shown:
+- `current_view` (custom state[⁴](#glossary-custom-state) on the page) controls which main group is shown:
   - `"home"`, `"pairing"`, `"product_detail"`, `"store_info"`
 - Each view group is set to:
   - **Not visible on page load**
-  - **Shown only when `current_view[¹¹](#glossary-current-view) = value`**
+  - **Shown only when `current_view = value`**
 
 #### Language Routing
 
 - On first app launch:
-  - Check for `localStorage[⁷](#glossary-localstorage).language`
+  - Check for `localStorage.language`
   - If missing: show `group_language_select`
 - When user selects a language:
-  - Store it in `localStorage[⁷](#glossary-localstorage)`
+  - Store it in `localStorage`
   - Set `selected_language` custom state[⁴](#glossary-custom-state)
 
 ---
@@ -394,12 +394,12 @@ All major groups exist on the **index page** for performance and navigation simp
 | State Name         | Attached To | Description                                          |
 |--------------------|-------------|------------------------------------------------------|
 | `selected_language`| Page        | Controls translation logic (FR/EN)                   |
-| `current_view[¹¹](#glossary-current-view)`     | Page        | Controls which main group is visible                |
+| `current_view`     | Page        | Controls which main group is visible                |
 | `selected_dish`    | Page        | Stores the dish selected by the user                |
 | `selected_product` | Page        | Stores the currently viewed wine or cheese item     |
 | `cached_pairing`   | Page        | (Optional) Stores the pairing result for reuse      |
 
-> All custom states[⁴](#glossary-custom-state) are **non-permanent** unless mirrored into `localStorage[⁷](#glossary-localstorage)`.
+> All custom states[⁴](#glossary-custom-state) are **non-permanent** unless mirrored into `localStorage`.
 
 ---
 
@@ -407,13 +407,13 @@ All major groups exist on the **index page** for performance and navigation simp
 
 - To support **sharable links or reload-safe sessions**, certain workflows[⁵](#glossary-workflow) can optionally:
   - Set `dish_id` or `view` in the URL (e.g., `index?view=pairing&dish_id=123`)
-  - On page load: use `Get data from page URL` to repopulate `selected_dish` or `current_view[¹¹](#glossary-current-view)`
+  - On page load: use `Get data from page URL` to repopulate `selected_dish` or `current_view`
 
 ---
 
 ### 2.8 Error Handling & Fallback Logic
 
-- If a required object is not found (e.g., no `PairingRule[¹⁰](#glossary-pairingrule)` for selected dish):
+- If a required object is not found (e.g., no `PairingRule` for selected dish):
   - Show a fallback group or alert: `"No pairing found for this dish."`
 - Navigation to invalid product ID:
   - Show message: `"Product not available. Please return to previous view."`
@@ -481,7 +481,7 @@ The application operates on six custom data types, each serving a distinct funct
 | Data Type     | Role                                                                 |
 |---------------|----------------------------------------------------------------------|
 | `Dish`        | Represents a culinary dish chosen by the user                        |
-| `PairingRule[¹⁰](#glossary-pairingrule)` | Defines the recommended wines and cheeses for a specific dish        |
+| `PairingRule` | Defines the recommended wines and cheeses for a specific dish        |
 | `Wine`        | Encapsulates a wine product, including tasting notes and legal info  |
 | `Cheese`      | Encapsulates a cheese product, including origin and allergen details |
 | `StoreInfo`   | Stores static information about the Intermarché store                |
@@ -497,12 +497,12 @@ Relationships between data types are implemented using direct object references 
 
 | Source Entity  | Related Entity | Relationship Type | Description                                                  |
 |----------------|----------------|-------------------|--------------------------------------------------------------|
-| `Dish`         | `PairingRule[¹⁰](#glossary-pairingrule)`  | 1:1               | Each dish is associated with one unique pairing rule         |
-| `PairingRule[¹⁰](#glossary-pairingrule)`  | `Wine`         | 1:N               | A rule includes one or more wine recommendations             |
-| `PairingRule[¹⁰](#glossary-pairingrule)`  | `Cheese`       | 1:N               | A rule includes one or more cheese recommendations           |
+| `Dish`         | `PairingRule`  | 1:1               | Each dish is associated with one unique pairing rule         |
+| `PairingRule`  | `Wine`         | 1:N               | A rule includes one or more wine recommendations             |
+| `PairingRule`  | `Cheese`       | 1:N               | A rule includes one or more cheese recommendations           |
 | `Translation`  | -              | Key-value         | Used to retrieve multilingual UI strings based on a key      |
 
-> All `PairingRule[¹⁰](#glossary-pairingrule)` entries are considered exclusive to a single `Dish`. Wines and cheeses are reusable and may appear in multiple pairings.
+> All `PairingRule` entries are considered exclusive to a single `Dish`. Wines and cheeses are reusable and may appear in multiple pairings.
 
 ---
 
@@ -649,9 +649,9 @@ flowchart TD
    - If not found, show the `group_language_select` group.
 
 2. **On button click (language choice):**
-   - `Set custom state[⁴](#glossary-custom-state)`: `selected_language = "fr"` or `"en"`
-   - `Run JavaScript` (optional): Save language in `localStorage[⁷](#glossary-localstorage)`
-   - Hide the language group and set `current_view[¹¹](#glossary-current-view) = "home"`
+   - `Set custom state`: `selected_language = "fr"` or `"en"`
+   - `Run JavaScript` (optional): Save language in `localStorage`
+   - Hide the language group and set `current_view = "home"`
 
 **Notes:**
 - All dynamic texts in the UI refer to `selected_language` to load the appropriate version.
@@ -684,7 +684,7 @@ flowchart TD
 
 3. **When user selects a dish:**
    - Set `selected_dish` (custom state[⁴](#glossary-custom-state) on page)
-   - Set `current_view[¹¹](#glossary-current-view) = "pairing"`
+   - Set `current_view = "pairing"`
 
 **Edge Handling:**
 - If no dishes match, show a text warning: "No matching dish found."
@@ -693,7 +693,7 @@ flowchart TD
 
 ### 4.3 Pairing Recommendations Workflow
 
-**Trigger:** `current_view[¹¹](#glossary-current-view)` is set to `"pairing"` and `selected_dish` is not empty
+**Trigger:** `current_view` is set to `"pairing"` and `selected_dish` is not empty
 
 ```mermaid
 flowchart TD
@@ -711,7 +711,7 @@ flowchart TD
 
 **Workflow[⁵](#glossary-workflow) Steps:**
 1. **On group display condition (pairing view):**
-   - Run a search: `PairingRule[¹⁰](#glossary-pairingrule) where Dish = selected_dish`
+   - Run a search: `PairingRule where Dish = selected_dish`
    - Set `cached_pairing` (custom state[⁴](#glossary-custom-state))
 
 2. **Bind data to elements:**
@@ -721,16 +721,16 @@ flowchart TD
 
 3. **On wine/cheese click:**
    - Set `selected_product` (custom state[⁴](#glossary-custom-state))
-   - Set `current_view[¹¹](#glossary-current-view) = "product_detail"`
+   - Set `current_view = "product_detail"`
 
 **Error Handling:**
-- If `PairingRule[¹⁰](#glossary-pairingrule)` is empty → Show fallback: "No pairing available for this dish."
+- If `PairingRule` is empty → Show fallback: "No pairing available for this dish."
 
 ---
 
 ### 4.4 Product Detail View Workflow
 
-**Trigger:** `current_view[¹¹](#glossary-current-view) = "product_detail"` and `selected_product` is set
+**Trigger:** `current_view = "product_detail"` and `selected_product` is set
 
 ```mermaid
 flowchart TD
@@ -747,7 +747,7 @@ flowchart TD
 **Workflow[⁵](#glossary-workflow) Steps:**
 1. **When product is clicked from pairing list:**
    - `Set state`: `selected_product = current cell’s Wine or Cheese`
-   - `Set state`: `current_view[¹¹](#glossary-current-view) = "product_detail"`
+   - `Set state`: `current_view = "product_detail"`
 
 2. **On product detail group visibility:**
    - Use `Only when selected_product is not empty`
@@ -758,7 +758,7 @@ flowchart TD
      - For cheese: show `allergens` as pill tags or bulleted list
 
 3. **Back button:**
-   - `Set state`: `current_view[¹¹](#glossary-current-view) = "pairing"`
+   - `Set state`: `current_view = "pairing"`
 
 ---
 
@@ -778,7 +778,7 @@ flowchart TD
 
 **Workflow[⁵](#glossary-workflow) Steps:**
 1. **Button click:**
-   - `Set state`: `current_view[¹¹](#glossary-current-view) = "store_info"`
+   - `Set state`: `current_view = "store_info"`
 
 2. **When store info group is visible:**
    - Fetch data from static `StoreInfo` entry
@@ -797,7 +797,7 @@ flowchart TD
 ```mermaid
 flowchart TD
     A[User opens Accessibility Settings] --> B[Select Text Size or Contrast]
-    B --> C[Update custom state[⁴](#glossary-custom-state) or localStorage]
+    B --> C[Update custom state or localStorage]
     C --> D[Apply conditional styles to groups]
     D --> E[Changes reflected in real time]
 ```
@@ -807,7 +807,7 @@ flowchart TD
    - “Large Text” → Apply conditional styles (e.g., dynamic font size)
    - “High Contrast” → Show high-contrast version of text/buttons
 
-2. Store choice in `localStorage[⁷](#glossary-localstorage)` or custom state[⁴](#glossary-custom-state) (`accessibility_mode`)
+2. Store choice in `localStorage` or custom state[⁴](#glossary-custom-state) (`accessibility_mode`)
 3. Apply changes dynamically to all pages via conditionals on group styles
 
 ---
@@ -828,9 +828,9 @@ flowchart TD
 
 **Workflow[⁵](#glossary-workflow) Steps:**
 1. On page load:
-   - Use a plugin or custom JS to check network status (`navigator.onLine[⁹](#glossary-navigator-online)`)
+   - Use a plugin or custom JS to check network status (`navigator.onLine`)
    - If offline:
-     - Try to load cached JSON data from `localStorage[⁷](#glossary-localstorage)`
+     - Try to load cached JSON data from `localStorage`
      - Populate repeating groups[⁶](#glossary-repeating-group) with fallback dish/wine/cheese data
      - Show alert: “You’re offline. Showing saved results only.”
 
@@ -844,14 +844,14 @@ The following table summarizes the primary user workflows[⁵](#glossary-workflo
 
 | Workflow[⁵](#glossary-workflow)                | Trigger                         | Main States Affected         | UI Components / Groups Involved              |
 |-------------------------|----------------------------------|-------------------------------|-----------------------------------------------|
-| Language Selection      | Page load or first-time visit    | `selected_language`, `current_view[¹¹](#glossary-current-view)` | `group_language_select`, `group_home`         |
-| Dish Search             | Input value changed              | `selected_dish`, `current_view[¹¹](#glossary-current-view)`     | `search_input`, `group_dish_list`             |
-| Dish Selection          | Dish card click                  | `selected_dish`, `current_view[¹¹](#glossary-current-view)`     | `repeating_group_dishes`, `group_pairing`     |
+| Language Selection      | Page load or first-time visit    | `selected_language`, `current_view` | `group_language_select`, `group_home`         |
+| Dish Search             | Input value changed              | `selected_dish`, `current_view`     | `search_input`, `group_dish_list`             |
+| Dish Selection          | Dish card click                  | `selected_dish`, `current_view`     | `repeating_group_dishes`, `group_pairing`     |
 | Load Pairing Rule       | View = "pairing"                 | `cached_pairing`                   | `group_pairing`, `group_pairing_details`      |
-| Select Wine or Cheese   | Product card click               | `selected_product`, `current_view[¹¹](#glossary-current-view)` | `group_pairing`, `group_product_detail`       |
-| Return to Pairing View  | Back button from product view    | `current_view[¹¹](#glossary-current-view)`                     | `group_product_detail`, `group_pairing`       |
-| View Store Info         | Menu or footer button click      | `current_view[¹¹](#glossary-current-view)`                     | `group_store_info`                            |
-| Offline Mode[¹⁴](#glossary-offline-mode) Detection  | Page load (with `navigator.onLine[⁹](#glossary-navigator-online)`) | (None directly)              | `group_offline_alert`, cached data (optional) |
+| Select Wine or Cheese   | Product card click               | `selected_product`, `current_view` | `group_pairing`, `group_product_detail`       |
+| Return to Pairing View  | Back button from product view    | `current_view`                     | `group_product_detail`, `group_pairing`       |
+| View Store Info         | Menu or footer button click      | `current_view`                     | `group_store_info`                            |
+| Offline Mode[¹⁴](#glossary-offline-mode) Detection  | Page load (with `navigator.onLine`) | (None directly)              | `group_offline_alert`, cached data (optional) |
 | Translation Loading     | Page load or state change        | `selected_language`               | All dynamic text elements via `Translation`   |
 
 ---
@@ -862,8 +862,8 @@ Each workflow[⁵](#glossary-workflow) is implemented using Bubble[¹](#glossary
 
 | State Name         | When Set                             | Reset/Cleared When                           |
 |--------------------|--------------------------------------|----------------------------------------------|
-| `selected_language`| On language selection or page load   | Never (persisted via `localStorage[⁷](#glossary-localstorage)`)         |
-| `current_view[¹¹](#glossary-current-view)`     | On any navigation click              | Updated continuously on view change          |
+| `selected_language`| On language selection or page load   | Never (persisted via `localStorage`)         |
+| `current_view`     | On any navigation click              | Updated continuously on view change          |
 | `selected_dish`    | On dish selection                    | Cleared when returning to dish list view     |
 | `cached_pairing`   | After pairing rule is retrieved      | Cleared on new dish selection                |
 | `selected_product` | On wine/cheese click                 | Cleared when returning to pairing view       |
@@ -934,16 +934,16 @@ Additional languages (e.g. SPA[³](#glossary-spa)nish, German) can be added in v
 1. Show `group_language_select`  
 2. On user click:  
    - Set custom state[⁴](#glossary-custom-state): `selected_language = "fr"` or `"en"`  
-   - Use **Toolbox Plugin[⁸](#glossary-toolbox)’s "Run JavaScript"** action to store the language in `localStorage[⁷](#glossary-localstorage)`:  
-     Example: `localStorage[⁷](#glossary-localstorage).setItem("language", "fr");`
+   - Use **Toolbox Plugin[⁸](#glossary-toolbox)’s "Run JavaScript"** action to store the language in `localStorage`:  
+     Example: `localStorage.setItem("language", "fr");`
 
 ---
 
 #### On Subsequent Visits
 
 - On page load:  
-  - Use **Toolbox[⁸](#glossary-toolbox)'s JavaScript action** to retrieve the language from `localStorage[⁷](#glossary-localstorage)`:  
-    Example: `localStorage[⁷](#glossary-localstorage).getItem("language")`  
+  - Use **Toolbox[⁸](#glossary-toolbox)'s JavaScript action** to retrieve the language from `localStorage`:  
+    Example: `localStorage.getItem("language")`  
   - Store the retrieved value in the `selected_language` custom state[⁴](#glossary-custom-state)  
   - Skip the language selection group if a valid language is found  
 
@@ -1057,7 +1057,7 @@ The UI follows these principles:
 
 ### 6.2 Page Structure and Layouts
 
-All views are built as **groups within a single index page**, controlled by the `current_view[¹¹](#glossary-current-view)` custom state[⁴](#glossary-custom-state). Each major view is responsive and includes:
+All views are built as **groups within a single index page**, controlled by the `current_view` custom state[⁴](#glossary-custom-state). Each major view is responsive and includes:
 
 View Name         | Type       | Contains  
 ------------------|------------|----------------------------------------------------  
@@ -1193,7 +1193,7 @@ This section details how the app is optimized to load quickly, execute workflows
 #### 7.2.4 Group Visibility Strategy
 
 - Set non-active groups to "This element is not visible on page load"  
-- Use conditionals tied to `current_view[¹¹](#glossary-current-view)` to prevent rendering inactive views  
+- Use conditionals tied to `current_view` to prevent rendering inactive views  
 - Avoid complex visibility conditions with multiple AND/OR checks  
 
 ---
@@ -1209,8 +1209,8 @@ This section details how the app is optimized to load quickly, execute workflows
 
 ### 7.4 Offline Behavior Handling
 
-- Dish, wine, and cheese lists can be cached in `localStorage[⁷](#glossary-localstorage)` as JSON  
-- If `navigator.onLine[⁹](#glossary-navigator-online)` is false:
+- Dish, wine, and cheese lists can be cached in `localStorage` as JSON  
+- If `navigator.onLine` is false:
   - Load content from storage if available  
   - Show "Offline Mode[¹⁴](#glossary-offline-mode)" warning  
   - Disable new searches and view switching that require fresh data  
@@ -1257,9 +1257,9 @@ Use cases include:
 
 - Logging values to the browser console:
   - `console.log(selected_language)`
-  - `console.log(localStorage[⁷](#glossary-localstorage).getItem("language"))`
+  - `console.log(localStorage.getItem("language"))`
 - Verifying condition results, query outputs, or responsive breakpoints
-- Debugging offline mode[¹⁴](#glossary-offline-mode) by checking `navigator.onLine[⁹](#glossary-navigator-online)` in real time
+- Debugging offline mode[¹⁴](#glossary-offline-mode) by checking `navigator.onLine` in real time
 
 > These diagnostics are visible in the browser’s Developer Tools console and do not interfere with Bubble[¹](#glossary-bubble)’s visual debugger.
 
@@ -1298,7 +1298,7 @@ This section outlines the app's security posture and legal compliance strategy. 
 
 ### 8.2 Local Storage Use
 
-- `selected_language` is stored via `localStorage[⁷](#glossary-localstorage)` using JavaScript  
+- `selected_language` is stored via `localStorage` using JavaScript  
 - Optional: cached dish/wine/cheese lists in JSON for offline mode[¹⁴](#glossary-offline-mode)  
 - No sensitive or identifiable information is stored in the browser
 
@@ -1398,7 +1398,7 @@ While Bubble[¹](#glossary-bubble) enables fast prototyping and visual developme
 | No native device access             | Cannot use camera, GPS, or notifications natively           |
 | No secure file storage              | Images are public and not suitable for private data         |
 | Limited query complexity            | No joins or relational filters across types in a single query |
-| Limited browser storage             | Only `localStorage[⁷](#glossary-localstorage)` and `sessionStorage` via custom JS      |
+| Limited browser storage             | Only `localStorage` and `sessionStorage` via custom JS      |
 
 > ✅ Some limitations (e.g., storage access and browser API usage) are partially mitigated using the **Toolbox Plugin[⁸](#glossary-toolbox)**, which enables direct JavaScript execution inside Bubble[¹](#glossary-bubble) workflows[⁵](#glossary-workflow).
 
@@ -1451,14 +1451,14 @@ The application design involves deliberate architectural decisions optimized for
 
 | Decision                                | Benefit                             | Limitation                             |
 |-----------------------------------------|-------------------------------------|----------------------------------------|
-| Single-page app using `current_view[¹¹](#glossary-current-view)`    | Fast, fluid navigation              | Requires careful state management      |
+| Single-page app using `current_view`    | Fast, fluid navigation              | Requires careful state management      |
 | No authentication system                | Simplifies privacy and security     | No personalization or saved history    |
 | Static Bubble[¹](#glossary-bubble) database (no API)         | Easy to manage and test             | No external integrations or automation |
 | Manual translations via DB              | Fully customizable                  | Requires maintenance of translation keys |
 | No plugins for UI or design             | Fewer dependencies                  | More manual work (e.g., no auto-layout) |
 | Use of Toolbox[⁸](#glossary-toolbox) for logic                | Enables access to native JS features | Introduces reliance on plugin updates  |
 
-> The use of the **Toolbox Plugin[⁸](#glossary-toolbox)** offers significant flexibility (e.g., `localStorage[⁷](#glossary-localstorage)`, `console.log`, offline detection), but must be maintained over time to ensure compatibility with Bubble[¹](#glossary-bubble) updates.
+> The use of the **Toolbox Plugin[⁸](#glossary-toolbox)** offers significant flexibility (e.g., `localStorage`, `console.log`, offline detection), but must be maintained over time to ensure compatibility with Bubble[¹](#glossary-bubble) updates.
 
 ---
 
@@ -1476,8 +1476,8 @@ This application relies on one key Bubble[¹](#glossary-bubble) plugin to extend
 
 The Toolbox Plugin[⁸](#glossary-toolbox) is used in the following contexts:
 
-- **Language persistence**: read/write to `localStorage[⁷](#glossary-localstorage)` for selected language  
-- **Offline mode[¹⁴](#glossary-offline-mode) detection**: check `navigator.onLine[⁹](#glossary-navigator-online)` to trigger fallback behavior  
+- **Language persistence**: read/write to `localStorage` for selected language  
+- **Offline mode[¹⁴](#glossary-offline-mode) detection**: check `navigator.onLine` to trigger fallback behavior  
 - **Debugging**: log values to browser console using `console.log(...)` in workflows[⁵](#glossary-workflow)  
 - **Dynamic values**: use JavaScript to compute or format values Bubble[¹](#glossary-bubble) cannot handle natively  
 
@@ -1517,7 +1517,7 @@ Simulate mobile responsiveness using Chrome DevTools where needed.
 
 - No pairings for a dish → fallback message  
 - Invalid product reference → error message or redirect  
-- Offline mode[¹⁴](#glossary-offline-mode) simulation → `navigator.onLine[⁹](#glossary-navigator-online)` handling  
+- Offline mode[¹⁴](#glossary-offline-mode) simulation → `navigator.onLine` handling  
 
 ---
 
@@ -1562,13 +1562,13 @@ Simulate mobile responsiveness using Chrome DevTools where needed.
   - Includes an app icon and theme color in **Bubble[¹](#glossary-bubble) Settings → General**
 - `manifest.json` is automatically handled by Bubble[¹](#glossary-bubble) (Professional Plan or higher)
 
-> Bubble[¹](#glossary-bubble) does not expose full service worker control. Offline support is **partial** and limited to cached elements and `localStorage[⁷](#glossary-localstorage)`.
+> Bubble[¹](#glossary-bubble) does not expose full service worker control. Offline support is **partial** and limited to cached elements and `localStorage`.
 
 ---
 
 #### Language Persistence
 
-- On page load, the app retrieves the saved language setting from `localStorage[⁷](#glossary-localstorage)` using the **Toolbox Plugin[⁸](#glossary-toolbox)**  
+- On page load, the app retrieves the saved language setting from `localStorage` using the **Toolbox Plugin[⁸](#glossary-toolbox)**  
   - If no value is found, it prompts the user to select a language  
   - Once selected, it is stored using a **"Run JavaScript"** action from Toolbox[⁸](#glossary-toolbox)
 
@@ -1576,7 +1576,7 @@ Simulate mobile responsiveness using Chrome DevTools where needed.
 
 #### Offline Detection (optional)
 
-- Toolbox[⁸](#glossary-toolbox) is also used to access the browser's `navigator.onLine[⁹](#glossary-navigator-online)` API  
+- Toolbox[⁸](#glossary-toolbox) is also used to access the browser's `navigator.onLine` API  
   - If the user is offline, show a banner and disable live search workflows[⁵](#glossary-workflow)  
   - This logic can be included in the page load workflow[⁵](#glossary-workflow) as a condition check
 
