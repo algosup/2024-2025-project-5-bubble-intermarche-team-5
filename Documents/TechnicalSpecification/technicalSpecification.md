@@ -22,6 +22,9 @@
 
 ## Table of Contents
 
+<details>
+<summary><b>I. Technical Overview</b></summary>
+
 **I. [Technical Overview](#i-technical-overview)**  
 - [1.1 Purpose of the Application](#11-purpose-of-the-application)  
 - [1.2 Development Platform](#12-development-platform)  
@@ -31,6 +34,11 @@
 - [1.6 Progressive Web App (PWA) Support](#16-progressive-web-app-pwa-support)  
 - [1.7 Target Users](#17-target-users)  
 - [1.8 Legal, Brand & Content Constraints](#18-legal-brand--content-constraints)
+
+</details>
+
+<details>
+<summary><b>II. App Architecture</b></summary> 
 
 **II. [App Architecture](#ii-app-architecture)**  
 - [2.1 Application Type](#21-application-type)  
@@ -43,6 +51,11 @@
 - [2.8 Error Handling & Fallback Logic](#28-error-handling--fallback-logic)  
 - [2.9 App Flow Overview (Diagram)](#29-app-flow-overview-diagram)
 
+</details>
+
+<details>
+<summary><b>III. Database Model</b></summary>
+
 **III. [Database Model](#iii-database-model)**  
 - [3.1 Overview of Data Entities](#31-overview-of-data-entities)  
 - [3.2 Entity Relationships](#32-entity-relationships)  
@@ -52,6 +65,11 @@
 - [3.6 Future Extensions](#36-future-extensions)  
 - [3.7 Optional Data Type: Translation](#37-optional-data-type-translation)  
 - [3.8 General Bubble Settings (Data Layer)](#38-general-bubble-settings-data-layer)
+
+</details>
+
+<details>
+<summary><b>IV. User Workflows</b></summary>
 
 **IV. [User Workflows](#iv-user-workflows)**  
 - [4.1 Language Selection Workflow](#41-language-selection-workflow)  
@@ -64,6 +82,11 @@
 - [4.8 Workflow Summary Table](#48-workflow-summary-table)  
 - [4.9 Custom State Lifecycle Summary](#49-custom-state-lifecycle-summary)
 
+</details>
+
+<details>
+<summary><b>V. Multilingual Support</b></summary>
+
 **V. [Multilingual Support](#v-multilingual-support)**  
 - [5.1 Supported Languages](#51-supported-languages)  
 - [5.2 Implementation Options](#52-implementation-options)  
@@ -74,6 +97,11 @@
 - [5.7 UI and Design Considerations](#57-ui-and-design-considerations)  
 - [5.8 Mermaid Diagram – Custom Language Load Logic](#58-mermaid-diagram--custom-language-load-logic)  
 - [5.9 Maintenance & Scaling](#59-maintenance--scaling)
+
+</details>
+
+<details>
+<summary><b>VI. Design & Responsiveness</b></summary>
 
 **VI. [Design & Responsiveness](#vi-design--responsiveness)**  
 - [6.1 Design Principles](#61-design-principles)  
@@ -86,6 +114,11 @@
 - [6.8 Layout Fallback Logic](#68-layout-fallback-logic)  
 - [6.9 Mermaid Diagram – Responsive Behavior Strategy](#69-mermaid-diagram--responsive-behavior-strategy)
 
+</details>
+
+<details>
+<summary><b>VII. Performance Considerations</b></summary>
+
 **VII. [Performance Considerations](#vii-performance-considerations)**  
 - [7.1 Performance Targets](#71-performance-targets)  
 - [7.2 Bubble Optimization Strategies](#72-bubble-optimization-strategies)  
@@ -94,6 +127,11 @@
 - [7.5 Device & Network Testing](#75-device--network-testing)  
 - [7.6 Debugging & Profiling](#76-debugging--profiling)  
 - [7.7 Mermaid Diagram – Workflow vs Query Optimization](#77-mermaid-diagram--workflow-vs-query-optimization)
+
+</details>
+
+<details>
+<summary><b>VIII. Security & Compliance</b></summary>
 
 **VIII. [Security & Compliance](#viii-security--compliance)**  
 - [8.1 Personal Data Handling](#81-personal-data-handling)  
@@ -105,6 +143,11 @@
 - [8.7 Content Governance](#87-content-governance)  
 - [8.8 Mermaid Diagram – Legal Enforcement Flow](#88-mermaid-diagram--legal-enforcement-flow)
 
+</details>
+
+<details>
+<summary><b>IX. Limitations</b></summary>
+
 **IX. [Limitations](#ix-limitations)**  
 - [9.1 Technical Platform Limitations](#91-technical-platform-limitations)  
 - [9.2 Offline Behavior Constraints](#92-offline-behavior-constraints)  
@@ -113,8 +156,18 @@
 - [9.5 Security Boundaries](#95-security-boundaries)  
 - [9.6 Architectural Trade-offs](#96-architectural-trade-offs)
 
+</details>
+
+<details>
+<summary><b>X. Plugins & External Tools</b></summary>
+
 **X. [Plugins & External Tools](#x-plugins--external-tools)**  
 - [10.1 Toolbox Usage](#101-toolbox-usage)
+
+</details>
+
+<details>
+<summary><b>XI. Testing & Deployment</b></summary>
 
 **XI. [Testing & Deployment](#xi-testing--deployment)**  
 - [11.1 Testing Strategy](#111-testing-strategy)  
@@ -125,13 +178,25 @@
 - [11.6 Final Delivery & Team Handoff](#116-final-delivery--team-handoff)  
 - [11.7 Mermaid Diagram – Testing Lifecycle](#117-mermaid-diagram--testing-lifecycle)
 
+</details>
+
+<details>
+<summary><b>XII. Versioning & Change Management</b></summary>
+
 **XII. [Versioning & Change Management](#xii-versioning--change-management)**  
 - [12.1 Bubble Development Workflow](#121-bubble-development-workflow)  
 - [12.2 Specification Versioning](#122-specification-versioning)  
 - [12.3 Change Request Workflow](#123-change-request-workflow)  
 - [12.4 Future Development Planning](#xii4-future-development-planning)
 
+</details>
+
+<details>
+<summary><b>XIII. Conclusion</b></summary>
+
 **XIII. [Conclusion](#xiii-conclusion)**
+
+</details>
 
 ---
 
