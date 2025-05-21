@@ -214,7 +214,7 @@ This mobile-first web application aims to assist users in discovering wine and c
 
 ### 1.2 Development Platform
 
-- **Platform**: [Bubble[¹](#glossary-bubble).io](https://Bubble[¹](#glossary-bubble).io)  
+- **Platform**: [Bubble.io](https://Bubble.io)  
 - **Plan**: Bubble[¹](#glossary-bubble) **Professional Plan**  
   - Enables custom domains, PWA[²](#glossary-pwa) headers, SEO, and capacity boosts  
   - Suitable for low-code production apps with moderate traffic  
