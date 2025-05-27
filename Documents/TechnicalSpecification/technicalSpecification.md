@@ -77,7 +77,7 @@
 - [4.3 Pairing Recommendations Workflow](#43-pairing-recommendations-workflow)  
 - [4.4 Product Detail View Workflow](#44-product-detail-view-workflow)  
 - [4.5 Store Information View Workflow](#45-store-information-view-workflow)  
-- [4.6 Accessibility Options (Optional)](#46-accessibility-options-optional)  
+- [4.6 Accessibility Options (Optional)](#46-accessibility-options-optional-future-feature)  
 - [4.7 Offline Fallback Workflow](#47-offline-fallback-workflow)  
 - [4.8 Workflow Summary Table](#48-workflow-summary-table)  
 - [4.9 Custom State Lifecycle Summary](#49-custom-state-lifecycle-summary)
