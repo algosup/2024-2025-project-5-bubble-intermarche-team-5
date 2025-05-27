@@ -1,8 +1,8 @@
-# 🗓️ Weekly Report – Week of April 29–May 3, 2025
+# 🗓️ Weekly Report - Week of April 28-May 2, 2025
 
 ## 1. Overview
 
-This report summarizes team progress, blockers, and next steps for the Wine & Cheese Pairing Web Application project based on internal survey responses collected during the week of April 29–May 3, 2025.  
+This report summarizes team progress, blockers, and next steps for the Wine & Cheese Pairing Web Application project based on internal survey responses collected during the week of April 28-May 2, 2025.  
 It aims to support transparency, reflect on team sentiment, and maintain alignment on priorities.
 
 ---

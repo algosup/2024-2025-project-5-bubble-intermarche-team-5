@@ -1,8 +1,8 @@
-# 🗓️ Weekly Report – Week of April 22–25, 2025
+# 🗓️ Weekly Report - Week of April 21-25, 2025
 
 ## 1. Overview
 
-This report summarizes team progress, challenges, and plans for the Wine & Cheese Pairing Web Application project based on the internal survey responses collected during the week of April 22–25, 2025.  
+This report summarizes team progress, challenges, and plans for the Wine & Cheese Pairing Web Application project based on the internal survey responses collected during the week of April 21-25, 2025.  
 The purpose is to promote transparency, highlight overall team sentiment, and outline the next steps.
 
 ---
