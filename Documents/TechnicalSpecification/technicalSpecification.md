@@ -881,7 +881,7 @@ This section details how the application supports multilingual content (French a
 - **French** (default)
 - **English**
 
-Additional languages (e.g. spanish, German) can be added in v2 using the same architecture.
+Additional languages (e.g. Spanish, German) can be added in v2 using the same architecture.
 
 ---
 
