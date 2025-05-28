@@ -12,6 +12,8 @@
 This document outlines the high-level timeline and key phases of the Wine & Cheese Pairing Web Application project.  
 It provides a preliminary roadmap that defines deliverables, target dates, and overall planning milestones to ensure alignment between the development team and the client.
 
+These dates were set to ensure timely progress toward the final presentation on June 20, 2025, and to maintain accountability across the team.
+
 This timeline is subject to refinement based on feedback received during the mockup validation phase and other evolving project needs.
 
 ---
