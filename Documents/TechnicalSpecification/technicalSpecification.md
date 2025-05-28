@@ -546,24 +546,56 @@ The table below illustrates how entities interact using a real-world example:
 
 #### 3.4.3 Wine: Cahors Rouge
 
-| Field         | Value         |
-|---------------|---------------|
-| name          | Cahors Rouge  |
-| region        | Sud-Ouest     |
-| taste_profile | Tannic, earthy|
-| price         | 6.50€         |
-| legal_notice  | true          |
-| image         | cahors.jpg    |
+| Field                | Value                                   |
+|----------------------|-----------------------------------------|
+| name                 | Cahors Rouge                            |
+| region               | Sud-Ouest                               |
+| appellation          | Cahors                                  |
+| year                 | 2022                                    |
+| price                | 6.50€                                   |
+| volume               | 75cl                                    |
+| type                 | Rouge                                   |
+| description          | Tannic, earthy                          |
+| cépages              | Malbec                                  |
+| taux_alcool          | 13%                                     |
+| notes                | fruits noirs; épices; garrigue          |
+| occasions            | Repas                                   |
+| pour_accompagner     | viandes rouges; plats mijotés           |
+| récompenses          | Médaille d'Or Concours Général Agricole |
+| labels               | AB;HVE                                  |
+| crd                  | R                                       |
+| producteur           | Château de Cahors                       |
+| allergènes           | sulfites                                |
+| léger_puissant       | P4                                      |
+| souple_tanique       | T3                                      |
+| sec_moelleux         | S5                                      |
+| doux_acide           | A3                                      |
+| image                | cahors.jpg                              |
 
 #### 3.4.4 Cheese: Tomme de Savoie
 
-| Field     | Value           |
-|-----------|-----------------|
-| name      | Tomme de Savoie |
-| region    | Rhône-Alpes     |
-| texture   | Semi-firm       |
-| allergens | [Milk]          |
-| image     | tomme.jpg       |
+| Field                | Value                                   |
+|----------------------|-----------------------------------------|
+| name                 | Tomme de Savoie                         |
+| type_pate            | Pâte pressée non cuite                  |
+| animal               | Vache                                   |
+| description          | Semi-firm, nutty, rustic                |
+| appellation          | Tomme de Savoie                         |
+| region               | Rhône-Alpes                             |
+| label                | AOP                                     |
+| pasteurise           | Non                                     |
+| lactose              | Oui                                     |
+| durée_affinage       | 60 jours                                |
+| prix_kg_ou_piece     | 18.00€/kg                               |
+| occasions            | Apéro; Repas                            |
+| type_vin             | Rouge                                   |
+| souple_tanique       | T3                                      |
+| leger_puissant       | P3                                      |
+| sec_moelleux         | M2                                      |
+| doux_acide           | A3                                      |
+| fruité               | oui                                     |
+| allergènes           | lait                                    |
+| image                | tomme.jpg                               |
 
 ---
 
@@ -705,7 +737,7 @@ flowchart TD
     E --> G{User selects product?}
     G -- Yes --> H[Set selected_product]
     H --> I[Set current_view to product_detail]
-    G -- No --> J[Remain on pairing view]
+    G -- No --> J[Remain on Pairing view]
     C -- No --> K[Show 'No pairing found' message]
 ```
 
@@ -1452,7 +1484,7 @@ While Bubble[¹](#glossary-bubble) enables fast prototyping and visual developme
 | Shopping cart / saved items      | Not included    |
 | Admin CMS                        | Not available   |
 | Multi-store support              | Not planned in v1 |
-| Live pricing or stock updates    | Not integrated  |
+| Live pricing integration via APIs  | Not integrated  |
 | User-generated content (reviews) | Excluded        |
 
 All data updates (products, pairings, translations) must be performed manually in the Bubble[¹](#glossary-bubble) editor.
