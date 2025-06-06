@@ -2,6 +2,8 @@
 
 Link to the actual application: [Wine & Cheese Discovery App](https://projectintermarche.bubbleapps.io/version-test/index)
 
+Spreadsheet for test cases: [Test Cases Spreadsheet](https://docs.google.com/spreadsheets/d/1Uc4m3wUfS8h6ZmRr6mdvs4oUeVg59lZ_E5GDCVahomQ/edit?usp=sharing)
+
 ## FTR-001: Landing – Pick a Language
 
 1. **Language Card Rendering**
