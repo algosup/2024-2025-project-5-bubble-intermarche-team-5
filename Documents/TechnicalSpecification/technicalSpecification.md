@@ -227,7 +227,7 @@ This mobile-first web application aims to assist users in discovering wine and c
 - **Data model**: Internal Bubble[¹](#glossary-bubble) database with public read-only access  
 - **No user authentication** in v1  
 
-#### Custom Logic Tools
+#### 1.2.1 Custom Logic Tools
 
 - **Custom states[⁴](#glossary-custom-state)**: Used to manage app-level context (`selected_language`, `current_view`, `selected_dish`, etc.)  
 - **Custom events**: Used to modularize and reuse logic (e.g., navigating views, clearing data)  
@@ -344,7 +344,7 @@ All major groups exist on the **index page** for performance and navigation simp
 
 ### 2.3 Navigation Logic
 
-#### State-Based Navigation
+#### 2.3.1 State-Based Navigation
 
 - `current_view` (custom state[⁴](#glossary-custom-state) on the page) controls which main group is shown:
   - `"home"`, `"pairing"`, `"product_detail"`, `"store_info"`
@@ -352,7 +352,7 @@ All major groups exist on the **index page** for performance and navigation simp
   - **Not visible on page load**
   - **Shown only when `current_view = value`**
 
-#### Language Routing
+#### 2.3.2 Language Routing
 
 - On first app launch:
   - Check for `localStorage.language`
@@ -526,7 +526,7 @@ flowchart TD
 
 The table below illustrates how entities interact using a real-world example:
 
-#### Dish: Cassoulet
+#### 3.4.1 Dish: Cassoulet
 
 | Field       | Value         |
 |-------------|---------------|
@@ -535,7 +535,7 @@ The table below illustrates how entities interact using a real-world example:
 | slug[¹⁶](#glossary-slug)        | cassoulet     |
 | image       | cassoulet.jpg |
 
-#### PairingRule[¹⁰](#glossary-pairingrule) (linked to Cassoulet)
+#### 3.4.2 PairingRule[¹⁰](#glossary-pairingrule) (linked to Cassoulet)
 
 | Field       | Value                                                                       |
 |-------------|-----------------------------------------------------------------------------|
@@ -544,26 +544,58 @@ The table below illustrates how entities interact using a real-world example:
 | cheeses     | [Tomme de Savoie, Laguiole]                                                 |
 | explanation | "Robust dishes call for full-bodied reds and aged mountain cheeses."       |
 
-#### Wine: Cahors Rouge
+#### 3.4.3 Wine: Cahors Rouge
 
-| Field         | Value         |
-|---------------|---------------|
-| name          | Cahors Rouge  |
-| region        | Sud-Ouest     |
-| taste_profile | Tannic, earthy|
-| price         | 6.50€         |
-| legal_notice  | true          |
-| image         | cahors.jpg    |
+| Field                | Value                                   |
+|----------------------|-----------------------------------------|
+| name                 | Cahors Rouge                            |
+| region               | Sud-Ouest                               |
+| appellation          | Cahors                                  |
+| year                 | 2022                                    |
+| price                | 6.50€                                   |
+| volume               | 75cl                                    |
+| type                 | Rouge                                   |
+| description          | Tannic, earthy                          |
+| cépages              | Malbec                                  |
+| taux_alcool          | 13%                                     |
+| notes                | fruits noirs; épices; garrigue          |
+| occasions            | Repas                                   |
+| pour_accompagner     | viandes rouges; plats mijotés           |
+| récompenses          | Médaille d'Or Concours Général Agricole |
+| labels               | AB;HVE                                  |
+| crd                  | R                                       |
+| producteur           | Château de Cahors                       |
+| allergènes           | sulfites                                |
+| léger_puissant       | P4                                      |
+| souple_tanique       | T3                                      |
+| sec_moelleux         | S5                                      |
+| doux_acide           | A3                                      |
+| image                | cahors.jpg                              |
 
-#### Cheese: Tomme de Savoie
+#### 3.4.4 Cheese: Tomme de Savoie
 
-| Field     | Value           |
-|-----------|-----------------|
-| name      | Tomme de Savoie |
-| region    | Rhône-Alpes     |
-| texture   | Semi-firm       |
-| allergens | [Milk]          |
-| image     | tomme.jpg       |
+| Field                | Value                                   |
+|----------------------|-----------------------------------------|
+| name                 | Tomme de Savoie                         |
+| type_pate            | Pâte pressée non cuite                  |
+| animal               | Vache                                   |
+| description          | Semi-firm, nutty, rustic                |
+| appellation          | Tomme de Savoie                         |
+| region               | Rhône-Alpes                             |
+| label                | AOP                                     |
+| pasteurise           | Non                                     |
+| lactose              | Oui                                     |
+| durée_affinage       | 60 jours                                |
+| prix_kg_ou_piece     | 18.00€/kg                               |
+| occasions            | Apéro; Repas                            |
+| type_vin             | Rouge                                   |
+| souple_tanique       | T3                                      |
+| leger_puissant       | P3                                      |
+| sec_moelleux         | M2                                      |
+| doux_acide           | A3                                      |
+| fruité               | oui                                     |
+| allergènes           | lait                                    |
+| image                | tomme.jpg                               |
 
 ---
 
@@ -705,7 +737,7 @@ flowchart TD
     E --> G{User selects product?}
     G -- Yes --> H[Set selected_product]
     H --> I[Set current_view to product_detail]
-    G -- No --> J[Remain on pairing view]
+    G -- No --> J[Remain on Pairing view]
     C -- No --> K[Show 'No pairing found' message]
 ```
 
@@ -881,13 +913,13 @@ This section details how the application supports multilingual content (French a
 - **French** (default)
 - **English**
 
-Additional languages (e.g. SPA[³](#glossary-spa)nish, German) can be added in v2 using the same architecture.
+Additional languages (e.g. Spanish, German) can be added in v2 using the same architecture.
 
 ---
 
 ### 5.2 Implementation Options
 
-#### Option 1: Bubble[¹](#glossary-bubble)'s Built-In Multilingual Plugin
+#### 5.2.1 Option 1: Bubble[¹](#glossary-bubble)'s Built-In Multilingual Plugin
 
 - Add the **"Multilingual" plugin** from the Bubble[¹](#glossary-bubble) Plugin Library.
 - Translate static UI text (e.g., button labels, page titles) directly in the Bubble[¹](#glossary-bubble) editor.
@@ -901,7 +933,7 @@ Additional languages (e.g. SPA[³](#glossary-spa)nish, German) can be added in v
 - Only handles static text (not dish names, descriptions, or pairing explanations)
 - No dynamic data translation support
 
-#### Option 2: Custom `Translation` Data Type
+#### 5.2.2 Option 2: Custom `Translation` Data Type
 
 - Create a new data type called `Translation` with the following fields:
 
@@ -929,7 +961,7 @@ Additional languages (e.g. SPA[³](#glossary-spa)nish, German) can be added in v
 
 ### 5.3 Language Selection & Persistence
 
-#### First Visit (No language stored)
+#### 5.3.1 First Visit (No language stored)
 
 1. Show `group_language_select`  
 2. On user click:  
@@ -939,7 +971,7 @@ Additional languages (e.g. SPA[³](#glossary-spa)nish, German) can be added in v
 
 ---
 
-#### On Subsequent Visits
+#### 5.3.2 On Subsequent Visits
 
 - On page load:  
   - Use **Toolbox[⁸](#glossary-toolbox)'s JavaScript action** to retrieve the language from `localStorage`:  
@@ -1077,7 +1109,7 @@ Reusable elements (e.g., footer, header) are inserted across views where needed.
 - **Container layout**:  
   - Top-level = Column (for vertical stacking)  
   - Inner content = Row or Align to Parent where needed  
-- **SPA[³](#glossary-spa)cing strategy**:  
+- **SPAcing[³](#glossary-spa) strategy**:  
   - Use `gap` instead of margin where possible  
   - Minimum margin = 16px for mobile padding  
 - **Max width**: Page is capped at 420px for centered experience on larger devices  
@@ -1124,6 +1156,18 @@ Responsive behavior is validated in Bubble[¹](#glossary-bubble)’s **Responsiv
 - **Language toggles**: Clearly labeled buttons with ARIA descriptions (optional)  
 - **Alt text**: All product images include alt text dynamically set from the name field  
 - **Optional**: Add `accessibility_mode` state for larger font toggle (future feature)  
+
+#### 6.7.1 Additional Accessibility Implementations
+
+| Feature                     | Implementation Method                            |
+|-----------------------------|---------------------------------------------------|
+| ARIA Labels                | Added to buttons and key groups (e.g., `aria-label="Back to pairing"`) |
+| Tab Navigation Order       | Maintains logical focus order across views       |
+| Language Attribute         | HTML `lang` tag set dynamically (e.g., `lang="fr"`) |
+| Image Alt Text             | Automatically populated with product names       |
+| Contrast Ratio             | WCAG 2.1 AA (4.5:1) verified with testing tools  |
+
+> 📝 All accessibility improvements are implemented with Bubble’s conditional logic and custom attributes where supported.
 
 ---
 
@@ -1231,7 +1275,7 @@ Simulated slow 3G using Chrome DevTools for cold start scenarios.
 
 ### 7.6 Debugging & Profiling
 
-#### Bubble[¹](#glossary-bubble) Debug Mode
+#### 7.6.1 Bubble[¹](#glossary-bubble) Debug Mode
 
 - Append `?debug_mode=true` to the app URL to trace workflow[⁵](#glossary-workflow) steps live  
 - Use step-by-step mode to verify conditional logic and state changes  
@@ -1239,7 +1283,7 @@ Simulated slow 3G using Chrome DevTools for cold start scenarios.
 
 ---
 
-#### Bubble[¹](#glossary-bubble) Logs & Performance Panel
+#### 7.6.2 Bubble[¹](#glossary-bubble) Logs & Performance Panel
 
 - Inspect errors and workflow[⁵](#glossary-workflow) durations in **Logs → Server logs**  
 - Use the **Performance tab** to identify:
@@ -1249,7 +1293,7 @@ Simulated slow 3G using Chrome DevTools for cold start scenarios.
 
 ---
 
-#### Console-Based JavaScript Debugging (via Toolbox[⁸](#glossary-toolbox))
+#### 7.6.3 Console-Based JavaScript Debugging (via Toolbox[⁸](#glossary-toolbox))
 
 The **Toolbox Plugin[⁸](#glossary-toolbox)** is used to run JavaScript directly within workflows[⁵](#glossary-workflow), allowing deeper visibility into the app’s state and logic.
 
@@ -1315,7 +1359,7 @@ This section outlines the app's security posture and legal compliance strategy. 
 
 ### 8.4 Alcohol-Related Legal Requirements
 
-#### Legal Disclaimer
+#### 8.4.1 Legal Disclaimer
 
 - Every **Wine detail view** must include the following disclaimer, visible at all times:  
   _“Alcohol consumption is prohibited for minors under 18 years. Drink responsibly.”_
@@ -1324,7 +1368,7 @@ This section outlines the app's security posture and legal compliance strategy. 
   - Conditional group inside the wine detail view
   - Cannot be hidden or collapsed by the user
 
-#### Promotion Restrictions
+#### 8.4.2 Promotion Restrictions
 
 - No "Buy now", pricing emphasis, or discount language allowed
 - Descriptions must be factual (e.g., taste profile, origin), not persuasive
@@ -1333,12 +1377,12 @@ This section outlines the app's security posture and legal compliance strategy. 
 
 ### 8.5 Allergen Labeling (Cheese)
 
-#### Mandatory Disclosure
+#### 8.5.1 Mandatory Disclosure
 
 - All `Cheese` records must include at least one allergen (e.g., Milk, Egg)
 - Displayed as pill tags or bulleted text block in the Product Detail view
 
-#### Integrity Enforcement
+#### 8.5.2 Integrity Enforcement
 
 - Allergen field is required in the Bubble[¹](#glossary-bubble) database  
 - Product uploads are manually reviewed before publication
@@ -1358,7 +1402,26 @@ This section outlines the app's security posture and legal compliance strategy. 
 - No "admin-only" content is exposed on the front-end  
 - All Bubble[¹](#glossary-bubble) backend workflows[⁵](#glossary-workflow) are disabled or unused  
 
----
+#### 8.6.1 Input Validation & Sanitization
+
+While the app currently operates in a read-only mode, any future write operations (e.g., admin content updates or user-generated input) should enforce:
+
+- Mandatory fields: Prevent record creation if essential data (e.g. name, image, allergens) is missing.
+- Image validation: Accept only JPG/PNG images below 1MB.
+- Rich text sanitization: Avoid inserting any executable HTML/JS into fields like explanations or descriptions.
+
+> ⚠️ Bubble does not offer native input sanitization. Manual data curation or regex constraints are required.
+
+#### 8.6.2 Threat Scenarios Considered
+
+| Threat Scenario             | Mitigation Strategy                             |
+|-----------------------------|--------------------------------------------------|
+| Cross-Site Scripting (XSS) | Only trusted users can modify content           |
+| Data scraping              | All data is public, read-only, and non-sensitive |
+| URL manipulation           | Invalid IDs trigger fallback views              |
+| Offline data tampering     | `localStorage` holds only display content       |
+
+--- 
 
 ### 8.7 Content Governance
 
@@ -1421,7 +1484,7 @@ While Bubble[¹](#glossary-bubble) enables fast prototyping and visual developme
 | Shopping cart / saved items      | Not included    |
 | Admin CMS                        | Not available   |
 | Multi-store support              | Not planned in v1 |
-| Live pricing or stock updates    | Not integrated  |
+| Live pricing integration via APIs  | Not integrated  |
 | User-generated content (reviews) | Excluded        |
 
 All data updates (products, pairings, translations) must be performed manually in the Bubble[¹](#glossary-bubble) editor.
@@ -1493,7 +1556,7 @@ This section describes how the application will be tested and deployed on the Bu
 
 ### 11.1 Testing Strategy
 
-#### Manual Testing Scope
+#### 11.1.1 Manual Testing Scope
 
 - Performed in **Bubble[¹](#glossary-bubble) preview** and **Live Environment[¹⁸](#glossary-live-environment)s**
 - Validate full flow:
@@ -1503,7 +1566,7 @@ This section describes how the application will be tested and deployed on the Bu
   - Wine/Cheese detail navigation
   - Store info access
 
-#### Device & Browser Coverage
+#### 11.1.2 Device & Browser Coverage
 
 | Device Type        | Browsers          | Target OS Versions |
 |--------------------|-------------------|--------------------|
@@ -1513,11 +1576,24 @@ This section describes how the application will be tested and deployed on the Bu
 
 Simulate mobile responsiveness using Chrome DevTools where needed.
 
-#### Edge Case Testing
+#### 11.1.3 Edge Case Testing
 
 - No pairings for a dish → fallback message  
 - Invalid product reference → error message or redirect  
 - Offline mode[¹⁴](#glossary-offline-mode) simulation → `navigator.onLine` handling  
+
+#### 11.1.4 Automation & Regression Testing (Optional – v2)
+
+Currently, QA is manual, but the following automation paths are proposed for future versions:
+
+- **UI Testing Tools**
+  - Use Puppeteer or Playwright to simulate flows (e.g., language → search → pairing view).
+- **Visual Regression**
+  - Capture snapshots after UI updates to detect layout changes.
+- **Workflow Testing Plugin**
+  - Bubble plugins can simulate expected success/failure of logic steps.
+
+> 🛠 For small-scale apps, manual testing remains sufficient in early versions.
 
 ---
 
@@ -1528,11 +1604,25 @@ Simulate mobile responsiveness using Chrome DevTools where needed.
 - Check workflow[⁵](#glossary-workflow) durations in the **Performance tab** (if available)  
 - Use `console.log` in custom JS (Toolbox Plugin[⁸](#glossary-toolbox)) to debug localStorage[⁷](#glossary-localstorage) logic
 
+#### 11.2.1 QA Checklist – Pre-Live Deployment
+
+| Checkpoint                               | Status |
+|------------------------------------------|--------|
+| Language toggle persists across reloads  | ✅     |
+| Dish search yields relevant results      | ✅     |
+| Invalid dish or product ID shows fallback| ✅     |
+| Wine disclaimer always visible           | ✅     |
+| Phone number tap triggers call           | ✅     |
+| All images load properly on 3G           | ✅     |
+| Offline banner appears in offline mode   | ✅     |
+
+> ✅ Run this checklist before promoting the app from Development to Live environment.
+
 ---
 
 ### 11.3 Deployment to Live
 
-#### Pre-launch Checklist
+#### 11.3.1 Pre-launch Checklist
 
 - Push all tested changes from **Development** to **Live**  
 - Validate that:
@@ -1545,7 +1635,7 @@ Simulate mobile responsiveness using Chrome DevTools where needed.
 
 ### 11.4 Final Configuration
 
-#### SEO & App Metadata
+#### 11.4.1 SEO & App Metadata
 
 - Set the app name, title, meta description, and favicon in **Bubble[¹](#glossary-bubble) → Settings → SEO / General**
 - Upload the app icon and splash screen in appropriate sizes:
@@ -1554,7 +1644,7 @@ Simulate mobile responsiveness using Chrome DevTools where needed.
 
 ---
 
-#### PWA[²](#glossary-pwa) Readiness
+#### 11.4.2 PWA[²](#glossary-pwa) Readiness
 
 - Ensure the app:
   - Is hosted over **HTTPS**
@@ -1566,7 +1656,7 @@ Simulate mobile responsiveness using Chrome DevTools where needed.
 
 ---
 
-#### Language Persistence
+#### 11.4.3 Language Persistence
 
 - On page load, the app retrieves the saved language setting from `localStorage` using the **Toolbox Plugin[⁸](#glossary-toolbox)**  
   - If no value is found, it prompts the user to select a language  
@@ -1574,7 +1664,7 @@ Simulate mobile responsiveness using Chrome DevTools where needed.
 
 ---
 
-#### Offline Detection (optional)
+#### 11.4.5 Offline Detection (optional)
 
 - Toolbox[⁸](#glossary-toolbox) is also used to access the browser's `navigator.onLine` API  
   - If the user is offline, show a banner and disable live search workflows[⁵](#glossary-workflow)  
