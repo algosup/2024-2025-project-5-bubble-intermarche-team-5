@@ -65,18 +65,22 @@ Bubble is perfect for MVPs, client prototypes, and projects that require **speed
 
 Key project documentation will be published here as the project progresses:
 
-- 📘 Project Charter – _Coming Soon_
-- 📑 Functional Specifications – _Coming Soon_
-- ⚙️ Technical Approach – _Coming Soon_
-- ✅ Test Plan – _Coming Soon_
-- 📆 Timeline & Milestones – _Coming Soon_
-- 📝 Weekly Reports – _Coming Soon_
+- [📘 Project Charter](https://github.com/algosup/2024-2025-project-5-bubble-intermarche-team-5/blob/main/Documents/Management/projectManagementPlan.md)
+- [📑 Functional Specifications](https://github.com/algosup/2024-2025-project-5-bubble-intermarche-team-5/blob/main/Documents/FunctionalSpecification/functionalSpecifications.md)
+- [⚙️ Technical Specifications](https://github.com/algosup/2024-2025-project-5-bubble-intermarche-team-5/blob/main/Documents/FunctionalSpecification/functionalSpecifications.md)
+- [✅ Test Plan](https://github.com/algosup/2024-2025-project-5-bubble-intermarche-team-5/blob/main/Documents/QualityAssurance/testPlan.md)
+- [📆 Timeline & Milestones](https://github.com/algosup/2024-2025-project-5-bubble-intermarche-team-5/blob/main/Documents/Management/preliminaryTimelineRoadmap.md)
+- [📝 Weekly Reports](https://github.com/algosup/2024-2025-project-5-bubble-intermarche-team-5/tree/main/Documents/Management/WeeklyReports)
 
 ---
 
-## 🚧 Deployment
+## 🚀 Deployment
 
-There is no live deployment yet. Links to working prototypes and public releases will be added here once available.
+A working proof of concept of the Wine & Cheese Pairing Web App is now available at the following link:
+
+👉 [Access the Prototype](https://projectintermarche.bubbleapps.io/version-test)  
+
+Please note that this version is still in development and may undergo changes based on client feedback and testing.
 
 ---
 
