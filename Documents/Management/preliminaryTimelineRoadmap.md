@@ -26,7 +26,7 @@ This timeline is subject to refinement based on feedback received during the moc
 | **Design & Mockups**         | 28 April - 5 May      | Figma mockups (5 versions), PDF brief, feedback session   | ✅ Completed                   |
 | **Validation & Finalization**| 6 - 10 May            | Final design version, Functional Specification (v1)       | ✅ Completed           |
 | **Development - Phase 1**    | 12 May - 28 May           | Core interface build in Bubble (UI + logic setup + Database setup)         | ✅ Completed             |
-| **Testing & Adjustments**    | 2 - 4 June            | Internal QA, client walkthroughs, issue reporting         | Buffer for quick iterations                |
+| **Testing & Adjustments**    | 2 - 4 June            | Internal QA, client walkthroughs, issue reporting         | Ongoing               |
 | **Final Deployment Prep**    | 5 - 13 June           | Final polishing, content review, visual tweaks            | Minor adjustments before presentation      |
 | **Final Presentation Preparation** | 16 - 19 June        | Slide deck, demo rehearsals, documentation polishing      | Dry run, alignment, and backup planning    |
 | **Project Jury Presentation Day**| 20 June | Formal pitch & live demo in front of the evaluation jury  | Includes Intermarché representatives (TBC)   |
