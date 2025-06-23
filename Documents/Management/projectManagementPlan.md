@@ -101,8 +101,8 @@ I = Informed (kept up to date)
 | Timeline & Roadmap           | Project Manager  | ✅ Complete    |
 | Risk Management Plan         | Project Manager  | ✅ Complete |
 | Functional Specifications    | Program Manager  | ✅ Complete   |
-| Technical Specifications     | Technical Lead   | In progress
-| Test plan                    | Quality Assurance|Not started
+| Technical Specifications     | Technical Lead   | ✅ Complete |
+| Test plan                    | Quality Assurance|✅ Complete |
 | Final Presentation Slides    | Whole Team       | Not started   |
 | Weekly Reports               | Project Manager  | Ongoing       |
 
@@ -129,4 +129,4 @@ I = Informed (kept up to date)
 ---
 
 **Document maintained by:** Ian LAURENT, Project Manager  
-**Version 1.0 - Last updated:** May 19, 2025  
+**Version 1.1 - Last updated:** May 19, 2025  
