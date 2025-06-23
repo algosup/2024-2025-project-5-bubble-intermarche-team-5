@@ -37,7 +37,7 @@ With the application feature set nearing completion, the team focused this week 
 Overall confidence remains strong, with continued motivation and clarity on the project's goals.  
 Some minor friction was noted in platform responsiveness and communication, but the team continues to deliver on expectations.
 
-![Team Confidence Survey Results](../../Assets/teamConfidenceSurveyResultsWeek6.png)
+![Team Confidence Survey Results](../../Assets/teamConfidenceSurveyResultsWeek8.png)
 
 | Survey Aspect                  | Team Sentiment                        |
 |-------------------------------|---------------------------------------|
